@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization_id: 1
+  user_id: 1
+  view_execution_time: 1
+  db_execution_time: 1
+  controllers: MyString
+  actions: MyString
+  params: MyText
+
+two:
+  organization_id: 1
+  user_id: 1
+  view_execution_time: 1
+  db_execution_time: 1
+  controllers: MyString
+  actions: MyString
+  params: MyText

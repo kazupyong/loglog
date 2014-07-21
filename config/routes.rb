@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :administrators
+
+  # Administorator device
+  devise_for :administrators, :path => "administrators", :path_names => {
+      :sign_in => 'login',
+      :sign_out => 'logout',
+      :password => 'secret',
+      :confirmation => 'verification',
+      :unlock => 'unblock',
+      :registration => 'register',
+      :sign_up => 'singup'
+  }, :controllers => {
+      :sessions => 'administrators/sessions',
+      :passwords => 'administrators/passwords',
+      :registrations => 'administrators/registrations'
+  }
+
   resources :administrators
 
   # The priority is based upon order of creation: first created -> highest priority.

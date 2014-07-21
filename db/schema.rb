@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612020123) do
+ActiveRecord::Schema.define(version: 20140721080414) do
+
+  create_table "action_logs", force: true do |t|
+    t.integer  "organization_id"
+    t.integer  "user_id"
+    t.integer  "view_execution_time"
+    t.integer  "db_execution_time"
+    t.string   "controllers"
+    t.string   "actions"
+    t.text     "params"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "administrator_logs", force: true do |t|
+    t.integer  "administrator_id"
+    t.string   "controllers"
+    t.string   "actions"
+    t.text     "params"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "administrators", force: true do |t|
     t.string   "name"
@@ -40,5 +61,21 @@ ActiveRecord::Schema.define(version: 20140612020123) do
   add_index "administrators", ["email"], name: "index_administrators_on_email", unique: true, using: :btree
   add_index "administrators", ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true, using: :btree
   add_index "administrators", ["unlock_token"], name: "index_administrators_on_unlock_token", unique: true, using: :btree
+
+  create_table "log_details", force: true do |t|
+    t.integer  "log_id"
+    t.string   "log_type"
+    t.integer  "log_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "logs", force: true do |t|
+    t.integer  "organization_id"
+    t.date     "log_date"
+    t.string   "current_license_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

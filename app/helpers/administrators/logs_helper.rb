@@ -1,0 +1,2 @@
+module Administrators::LogsHelper
+end
