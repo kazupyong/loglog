@@ -40,3 +40,11 @@ gem 'capistrano-rails', group: :development
 
 # Use RSpecTest
 gem 'rspec', group: [:development, :test]
+
+# Use Devise
+gem 'devise'
+
+# Use Bootstrap# Twitter Bootstrap
+gem 'twitter-bootswatch-rails', '~> 3.1.1'
+gem 'twitter-bootswatch-rails-helpers'
+gem 'therubyracer'

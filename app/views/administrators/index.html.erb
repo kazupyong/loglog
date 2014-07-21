@@ -1,0 +1,43 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<%- model_class = Administrator -%>
+  <div class="page-header" id="banner">
+    <div class="row">
+        <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+    </div>
+  </div>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @administrators.each do |administrator| %>
+      <tr>
+        <td><%= link_to administrator.id, administrator_path(administrator) %></td>
+        <td><%= administrator.name %></td>
+        <td><%= administrator.email %></td>
+        <td><%=l administrator.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_administrator_path(administrator), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.update_password', :default => t("helpers.links.update_password")),
+                      edit_administrator_path(administrator), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      administrator_path(administrator),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_administrator_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,55 @@
+<%- model_class = Administrator -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @administrator.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @administrator.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:encrypted_password) %>:</strong></dt>
+  <dd><%= @administrator.encrypted_password %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:reset_password_token) %>:</strong></dt>
+  <dd><%= @administrator.reset_password_token %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:reset_password_sent_at) %>:</strong></dt>
+  <dd><%= @administrator.reset_password_sent_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:remember_created_at) %>:</strong></dt>
+  <dd><%= @administrator.remember_created_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sign_in_count) %>:</strong></dt>
+  <dd><%= @administrator.sign_in_count %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:current_sign_in_at) %>:</strong></dt>
+  <dd><%= @administrator.current_sign_in_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_sign_in_at) %>:</strong></dt>
+  <dd><%= @administrator.last_sign_in_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:current_sign_in_ip) %>:</strong></dt>
+  <dd><%= @administrator.current_sign_in_ip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong></dt>
+  <dd><%= @administrator.last_sign_in_ip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:confirmation_token) %>:</strong></dt>
+  <dd><%= @administrator.confirmation_token %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:confirmed_at) %>:</strong></dt>
+  <dd><%= @administrator.confirmed_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:confirmation_sent_at) %>:</strong></dt>
+  <dd><%= @administrator.confirmation_sent_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unconfirmed_email) %>:</strong></dt>
+  <dd><%= @administrator.unconfirmed_email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:failed_attempts) %>:</strong></dt>
+  <dd><%= @administrator.failed_attempts %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unlock_token) %>:</strong></dt>
+  <dd><%= @administrator.unlock_token %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:locked_at) %>:</strong></dt>
+  <dd><%= @administrator.locked_at %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              administrators_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_administrator_path(@administrator), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              administrator_path(@administrator),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
