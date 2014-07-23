@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class Administrators::LogsHelperTest < ActionView::TestCase
+class AdministratorLogsHelperTest < ActionView::TestCase
 end

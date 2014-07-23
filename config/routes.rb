@@ -14,14 +14,12 @@ Rails.application.routes.draw do
       :passwords => 'administrators/passwords',
       :registrations => 'administrators/registrations'
   }
-
-  resources :administrators
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
+     namespace :administrators do
+       resources :logs
+       resources :dashboard ,:only =>  [:index]
+     end
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'top#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
